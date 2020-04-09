@@ -57,43 +57,33 @@
 ;;(load-theme 'airline-alduin t)
 (load-theme 'doom-tomorrow-day t)
 
+;;(global-linum-mode t)
 (global-wakatime-mode)
-(global-linum-mode t)
 
 (yas-global-mode 1)
-;;(scroll-bar-mode -1)
-;;(show-paren-mode t)
-;;(ivy-mode 1)
-;;(projectile-mode +1)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-o") 'ace-window)
 (global-set-key [f8] 'treemacs)
 ;;(global-set-key "\C-s" 'swiper)
 ;;(define-key global-map (kbd "/") 'swiper)
-
+;;(setq company-lsp-cache-candidates t)
 (setq mac-command-modifier 'control)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (setq backup-directory-alist `(("." . "~/.saves")))
-;;(setq lsp-clients-typescript-server "/usr/local/bin/typescript-language-server" lsp-clients-typescript-server-args '("--stdio"))
-;;(setq enable-recursive-minibuffers t)
+(setq lsp-clients-typescript-server "/usr/local/bin/typescript-language-server" lsp-clients-typescript-server-args '("--stdio"))
 ;;(setq ivy-use-virtual-buffers t)
 ;;(setq ivy-use-selectable-prompt t)
 ;;(setq projectile-completion-system 'ivy)
-(setq ivy-re-builders-alist
-     '((ivy-switch-buffer . ivy--regex-plus)
-        (t . ivy--regex-fuzzy)))
-;;(setq visible-bell t)
-;;(setq ring-bell-function 'ignore)
-(setq inhibit-startup-screen t)
-;;(setq company-idle-delay 0.5)
-;;(setq company-minimum-prefix-length 1)
+;;(setq ivy-re-builders-alist
+;;     '((ivy-switch-buffer . ivy--regex-plus)
+;;        (t . ivy--regex-fuzzy)))
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
-;;(setq-default tab-width 4 indent-tabs-mode nil)
-;;(setq-default c-basic-offset 2 c-default-style "bsd")
+(setq-default tab-width 4 indent-tabs-mode nil)
 
-;;(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(global-company-mode)
+(global-flycheck-mode)
 ;;(add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'bazel-mode-hook (lambda () (add-hook 'before-save-hook #'bazel-format nil t)))
 (add-hook 'c++-mode-hook #'lsp-deferred)
@@ -102,7 +92,6 @@
 (add-hook 'css-mode-hook  #'lsp-deferred)
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (add-hook 'go-mode-hook #'lsp-deferred)
-(add-hook 'go-mode-hook (lambda () (add-hook 'before-save-hook #'gofmt-before-save)))
 (add-hook 'js-mode-hook #'lsp-deferred)
 (add-hook 'json-mode-hook #'lsp-deferred)
 (add-hook 'jsx-mode-hook #'lsp-deferred)
@@ -112,10 +101,14 @@
 (add-hook 'python-mode #'lsp-deferred)
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'typescript-mode-hook #'lsp-deferred)
-(add-hook 'typescript-mode-hook 'prettier-js-mode )
+;;(add-hook 'typescript-mode-hook 'prettier-js-mode )
 (add-hook 'web-mode-hook  'emmet-mode)
 (add-hook 'web-mode-hook #'lsp-deferred)
-(add-hook 'web-mode-hook 'prettier-js-mode)
+;;(add-hook 'web-mode-hook 'prettier-js-mode)
+;;(eval-after-load 'web-mode
+;;    '(progn
+;;       (add-hook 'web-mode-hook #'./node_modules/.bin)
+;;       (add-hook 'web-mode-hook #'prettier-js-mode)))
 
 (defun lsp-on-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
