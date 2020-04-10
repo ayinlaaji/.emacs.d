@@ -75,9 +75,9 @@
 ;;(setq ivy-use-virtual-buffers t)
 ;;(setq ivy-use-selectable-prompt t)
 ;;(setq projectile-completion-system 'ivy)
-;;(setq ivy-re-builders-alist
-;;     '((ivy-switch-buffer . ivy--regex-plus)
-;;        (t . ivy--regex-fuzzy)))
+(setq ivy-re-builders-alist
+     '((ivy-switch-buffer . ivy--regex-plus)
+        (t . ivy--regex-fuzzy)))
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
 (setq-default tab-width 4 indent-tabs-mode nil)
