@@ -53,15 +53,14 @@
 ;; This file bootstraps the configuration, which is divided into
 ;; a number of other files.
 
+(package! add-node-modules-path)
 (package! bazel-mode)
 ;;(package! company-flx)
 (package! dash-docs)
 (package! emmet-mode)
 (package! git-lens)
 (package! ivy-yasnippet)
-(package! add-node-modules-path)
 (package! k8s-mode)
-(package! lsp-treemacs)
 (package! prettier-js)
 (package! wakatime-mode)
 (package! yasnippet)
