@@ -55,7 +55,7 @@
 
 ;;GLOBALS ================================
 ;;(load-theme 'airline-alduin t)
-(load-theme 'doom-tomorrow-day t)
+(load-theme 'doom-oceanic-next t)
 
 ;;(global-linum-mode t)
 (global-wakatime-mode)
