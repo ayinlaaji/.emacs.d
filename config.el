@@ -79,8 +79,8 @@
      '((ivy-switch-buffer . ivy--regex-plus)
         (t . ivy--regex-fuzzy)))
 ;; enable this if you want `swiper' to use it
-;; (setq search-default-mode #'char-fold-to-regexp)
-(setq-default tab-width 4 indent-tabs-mode nil)
+(setq search-default-mode #'char-fold-to-regexp)
+(setq-default tab-width 2 indent-tabs-mode nil)
 
 ;;(global-company-mode)
 (global-flycheck-mode)
