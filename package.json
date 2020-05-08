@@ -1,0 +1,23 @@
+{
+  "name": "doom",
+  "version": "1.0.0",
+  "description": "Emacs configuration file based on emacs doom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayinlaaji/.emacs.d.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayinlaaji/.emacs.d/issues"
+  },
+  "homepage": "https://github.com/ayinlaaji/.emacs.d#readme",
+  "dependencies": {
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
+  }
+}
