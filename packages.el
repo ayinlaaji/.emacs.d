@@ -65,3 +65,6 @@
 (package! wakatime-mode)
 (package! yasnippet)
 (package! yasnippet-snippets)
+(package! yasnippet-snippets)
+(package! org-bullets)
+(package! plantuml-mode)

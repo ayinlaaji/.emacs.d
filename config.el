@@ -71,7 +71,7 @@
 (setq mac-command-modifier 'control)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (setq backup-directory-alist `(("." . "~/.saves")))
-(setq lsp-clients-typescript-server "/usr/local/bin/typescript-language-server" lsp-clients-typescript-server-args '("--stdio"))
+;;(setq lsp-clients-typescript-server "/usr/local/bin/typescript-language-server" lsp-clients-typescript-server-args '("--stdio"))
 ;;(setq ivy-use-virtual-buffers t)
 ;;(setq ivy-use-selectable-prompt t)
 ;;(setq projectile-completion-system 'ivy)
@@ -81,6 +81,8 @@
 ;; enable this if you want `swiper' to use it
 (setq search-default-mode #'char-fold-to-regexp)
 (setq-default tab-width 2 indent-tabs-mode nil)
+(setq initial-major-mode 'org-mode)
+(setq org-plantuml-jar-path (expand-file-name "/Users/ayinla/plantuml.jar"))
 
 ;;(global-company-mode)
 (global-flycheck-mode)
@@ -123,3 +125,4 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.uml\\'" . plantuml-mode))
