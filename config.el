@@ -126,9 +126,12 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.uml\\'" . plantuml-mode))
+
 ;; Sample jar configuration
 (setq plantuml-jar-path "/Users/ayinla/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
 (setq org-plantuml-jar-path
       (expand-file-name "/Users/ayinla/plantuml.jar"))
 (flycheck-add-mode 'proselint 'org-mode)
+(display-time-mode 1)
+(timeclock-mode-line-display 1)
