@@ -68,3 +68,4 @@
 (package! yasnippet-snippets)
 (package! org-bullets)
 (package! plantuml-mode)
+(package! org-pomodoro)
