@@ -135,3 +135,15 @@
 (flycheck-add-mode 'proselint 'org-mode)
 (display-time-mode 1)
 (timeclock-mode-line-display 1)
+(setq org-log-done 'time)
+(after! org
+  (add-to-list 'org-capture-templates
+    '("c" "Capture" entry (file+headline "~/org/refile.org" "Tasks") "* TODO %?\n  %i\n" :prepend t))
+)
+
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+
+(setq org-global-properties (quote (("Effort_ALL" . "0 0:10 0:20 0:30 1:00 1:30 2:00 3:00 4:00 6:00 8:00 10:00 20:00"))))
+(setq org-columns-default-format "%40ITEM %TODO %3PRIORITY %10TAGS %17Effort(Estimated Effort){:} %12CLOCKSUM")
