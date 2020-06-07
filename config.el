@@ -57,89 +57,86 @@
 ;;(load-theme 'airline-alduin t)
 (load-theme 'doom-oceanic-next t)
 
-;;(global-linum-mode t)
+;;(global-linum-mode t) ;;This shit keeps fucking up EMACS for me :(
 (global-wakatime-mode)
-
 (yas-global-mode 1)
+;;(flycheck-add-mode 'proselint 'org-mode)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-o") 'ace-window)
-(global-set-key [f8] 'treemacs)
+(map! :leader
+      :desc "Jump to char" "i s" #'ivy-yasnippet)
+
 (map! :m "/" 'swiper)
-;;(setq company-lsp-cache-candidates t)
-(setq ivy-display-style 'fancy)
-(setq mac-command-modifier 'control)
+
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-(setq backup-directory-alist `(("." . "~/.saves")))
-;;(setq lsp-clients-typescript-server "/usr/local/bin/typescript-language-server" lsp-clients-typescript-server-args '("--stdio"))
-;;(setq ivy-use-virtual-buffers t)
-;;(setq ivy-use-selectable-prompt t)
-;;(setq projectile-completion-system 'ivy)
-(setq ivy-re-builders-alist
-     '((ivy-switch-buffer . ivy--regex-plus)
-        (t . ivy--regex-fuzzy)))
-;; enable this if you want `swiper' to use it
-(setq search-default-mode #'char-fold-to-regexp)
-(setq-default tab-width 2 indent-tabs-mode nil)
-(setq initial-major-mode 'org-mode)
+(setq company-lsp-cache-candidates t)
 (setq org-plantuml-jar-path (expand-file-name "/Users/ayinla/plantuml.jar"))
 
-;;(global-company-mode)
-(global-flycheck-mode)
-;;(add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'bazel-mode-hook (lambda () (add-hook 'before-save-hook #'bazel-format nil t)))
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq initial-major-mode 'org-mode)
+(setq mac-command-modifier 'control)
+(setq-default tab-width 2 indent-tabs-mode nil)
+(setq ivy-re-builders-alist
+      '((ivy-switch-buffer . ivy--regex-plus)
+        (t . ivy--regex-fuzzy)))
+(setq enable-recursive-minibuffers t)
+(setq ivy-use-selectable-prompt t)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+(setq projectile-completion-system 'ivy)
+
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.uml\\'" . plantuml-mode))
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+
+;; Defer LSP
 (add-hook 'c++-mode-hook #'lsp-deferred)
-(add-hook 'c-mode-common-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer)))
 (add-hook 'c-mode-hook #'lsp-deferred)
 (add-hook 'css-mode-hook  #'lsp-deferred)
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'js-mode-hook #'lsp-deferred)
 (add-hook 'json-mode-hook #'lsp-deferred)
 (add-hook 'jsx-mode-hook #'lsp-deferred)
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
-(add-hook 'org-mode-hook 'org-bullets-mode)
-(add-hook 'protobuf-mode-hook (lambda () (add-hook 'before-save-hook #'format-all-buffer)))
 (add-hook 'python-mode #'lsp-deferred)
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'typescript-mode-hook #'lsp-deferred)
-;;(add-hook 'typescript-mode-hook 'prettier-js-mode )
-(add-hook 'web-mode-hook  'emmet-mode)
 (add-hook 'web-mode-hook #'lsp-deferred)
-;;(add-hook 'web-mode-hook 'prettier-js-mode)
-;;(eval-after-load 'web-mode
-;;    '(progn
-;;       (add-hook 'web-mode-hook #'./node_modules/.bin)
-;;       (add-hook 'web-mode-hook #'prettier-js-mode)))
 
-(defun lsp-on-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+;; Enable Emmet
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode)
+(add-hook 'web-mode-hook  'emmet-mode)
+(add-hook 'typescript-mode-hook 'emmet-mode)
 
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.uml\\'" . plantuml-mode))
+;; Before save hooks
+(add-hook 'org-mode-hook 'org-bullets-mode)
+(add-hook 'bazel-mode-hook (lambda ()(add-hook 'before-save-hook #'bazel-format nil t)))
+(add-hook 'c-mode-common-hook (lambda ()(add-hook 'before-save-hook #'lsp-format-buffer)))
+(add-hook 'protobuf-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
 
-;; Sample jar configuration
+;; PlantUML jar configuration
 (setq plantuml-jar-path "/Users/ayinla/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
 (setq org-plantuml-jar-path
       (expand-file-name "/Users/ayinla/plantuml.jar"))
-(flycheck-add-mode 'proselint 'org-mode)
+
+
+;; Org-mode configuration
 (display-time-mode 1)
 (timeclock-mode-line-display 1)
 (setq org-log-done 'time)
 (after! org
   (add-to-list 'org-capture-templates
-    '("c" "Capture" entry (file+headline "~/org/refile.org" "Tasks") "* TODO %?\n  %i\n" :prepend t))
-)
+               '("c" "Capture" entry (file+headline "~/org/refile.org" "Tasks") "* TODO %?\n  %i\n" :prepend t))
+  )
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")

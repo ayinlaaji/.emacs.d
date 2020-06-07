@@ -53,10 +53,7 @@
 ;; This file bootstraps the configuration, which is divided into
 ;; a number of other files.
 
-(package! add-node-modules-path)
 (package! bazel-mode)
-(package! company-flx)
-(package! company-ispell)
 (package! counsel-dash)
 (package! emmet-mode)
 (package! git-lens)
@@ -65,7 +62,7 @@
 (package! org-bullets)
 (package! org-pomodoro)
 (package! plantuml-mode)
-(package! prettier-js)
 (package! wakatime-mode)
-(package! yasnippet)
 (package! yasnippet-snippets)
+(package! forge)
+(package! org-clock-convenience)
