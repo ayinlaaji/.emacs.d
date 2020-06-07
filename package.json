@@ -16,8 +16,9 @@
     "url": "https://github.com/ayinlaaji/.emacs.d/issues"
   },
   "homepage": "https://github.com/ayinlaaji/.emacs.d#readme",
-  "dependencies": {
-    "prettier": "^2.0.5",
-    "typescript": "^3.8.3"
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.9.5",
+    "prettier": "^2.0.5"
   }
 }
