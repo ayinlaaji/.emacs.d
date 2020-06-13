@@ -1,3 +1,4 @@
+
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
@@ -55,7 +56,12 @@
 
 ;;GLOBALS ================================
 ;;(load-theme 'airline-alduin t)
-(load-theme 'doom-oceanic-next t)
+;;(load-theme 'doom-oceanic-next t)
+;;(load-theme 'doom-opera-light t)
+(load-theme 'tsdh-light t)
+
+(setq inhibit-compacting-font-caches nil)
+(setq which-key-allow-imprecise-window-fit t)
 
 ;;(global-linum-mode t) ;;This shit keeps fucking up EMACS for me :(
 (global-wakatime-mode)
@@ -78,13 +84,14 @@
 (setq mac-command-modifier 'control)
 (setq-default tab-width 2 indent-tabs-mode nil)
 (setq ivy-re-builders-alist
-      '((ivy-switch-buffer . ivy--regex-plus)
+     '((ivy-switch-buffer . ivy--regex-plus)
         (t . ivy--regex-fuzzy)))
 (setq enable-recursive-minibuffers t)
 (setq ivy-use-selectable-prompt t)
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
 (setq projectile-completion-system 'ivy)
+(setq projectile-project-search-path '("~/github.com/"))
 
 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
@@ -154,3 +161,4 @@
                     (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
 (defun add-d-to-ediff-mode-map () (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
 (add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
+
