@@ -66,3 +66,4 @@
 (package! yasnippet-snippets)
 (package! forge)
 (package! org-clock-convenience)
+(package! company-restclient)
