@@ -86,6 +86,7 @@
 (setq ivy-re-builders-alist
      '((ivy-switch-buffer . ivy--regex-plus)
         (t . ivy--regex-fuzzy)))
+(add-to-list 'ivy-re-builders-alist '(counsel-rg . ivy--regex-plus))
 (setq enable-recursive-minibuffers t)
 (setq ivy-use-selectable-prompt t)
 (setq ivy-use-virtual-buffers t)
