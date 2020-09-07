@@ -58,13 +58,14 @@
 ;;(load-theme 'airline-alduin t)
 ;;(load-theme 'doom-oceanic-next t)
 ;;(load-theme 'doom-opera-light t)
-(load-theme 'tsdh-light t)
+;;(load-theme 'tsdh-light t)
+(load-theme 'doom-solarized-light t)
 
 (setq inhibit-compacting-font-caches nil)
 (setq which-key-allow-imprecise-window-fit t)
 
 ;;(global-linum-mode t) ;;This shit keeps fucking up EMACS for me :(
-(global-wakatime-mode)
+;;(global-wakatime-mode)
 (yas-global-mode 1)
 ;;(flycheck-add-mode 'proselint 'org-mode)
 
