@@ -163,3 +163,5 @@
 (defun add-d-to-ediff-mode-map () (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
 (add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
 
+(setq company-dabbrev-downcase 0)
+(setq company-idle-delay 0.5)
