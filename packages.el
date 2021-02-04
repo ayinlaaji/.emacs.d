@@ -67,3 +67,5 @@
 (package! forge)
 (package! org-clock-convenience)
 (package! company-restclient)
+(package! protobuf-mode)
+(package! clang-format)

@@ -165,3 +165,10 @@
 
 (setq company-dabbrev-downcase 0)
 (setq company-idle-delay 0.5)
+
+;;(defconst my-protobuf-style
+;;  '((c-basic-offset . 2)
+;;    (indent-tabs-mode . nil)))
+;;
+;;(add-hook 'protobuf-mode-hook
+;;          (lambda () (c-add-style "my-style" my-protobuf-style t)))
