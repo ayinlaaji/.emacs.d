@@ -9,3 +9,6 @@ install-golang:
 
 install-godef:
 	go get github.com/rogpeppe/godef
+
+install-adr-tools:
+	brew isntall adr-tools
