@@ -57,9 +57,9 @@
 ;;GLOBALS ================================
 ;;(load-theme 'airline-alduin t)
 ;;(load-theme 'doom-oceanic-next t)
-;;(load-theme 'doom-opera-light t)
 ;;(load-theme 'tsdh-light t)
-(load-theme 'doom-solarized-light t)
+;;(load-theme 'doom-solarized-light t)
+(load-theme 'doom-solarized-dark t)
 
 (setq inhibit-compacting-font-caches nil)
 (setq which-key-allow-imprecise-window-fit t)
@@ -103,7 +103,7 @@
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.uml\\'" . plantuml-mode))
+(add-to-list 'auto-mode-alist '("\\.[p]uml\\'" . plantuml-mode))
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 
 ;; Defer LSP
@@ -129,6 +129,7 @@
 (add-hook 'bazel-mode-hook (lambda ()(add-hook 'before-save-hook #'bazel-format nil t)))
 (add-hook 'c-mode-common-hook (lambda ()(add-hook 'before-save-hook #'lsp-format-buffer)))
 (add-hook 'protobuf-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
+(add-hook 'plantuml-mode-hook (lambda ()(add-hook 'before-save-hook #'plantuml-preview)))
 
 ;; PlantUML jar configuration
 (setq plantuml-jar-path "/Users/ayinla/plantuml.jar")

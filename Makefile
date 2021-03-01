@@ -11,4 +11,10 @@ install-godef:
 	go get github.com/rogpeppe/godef
 
 install-adr-tools:
-	brew isntall adr-tools
+	brew install adr-tools
+
+install-graphviz:
+	brew install graphviz
+
+install-java:
+	brew install --cask adoptopenjdk
