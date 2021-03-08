@@ -59,7 +59,8 @@
 ;;(load-theme 'doom-oceanic-next t)
 ;;(load-theme 'tsdh-light t)
 ;;(load-theme 'doom-solarized-light t)
-(load-theme 'doom-solarized-dark t)
+(load-theme 'doom-challenger-deep t)
+;;(load-theme 'doom-solarized-dark t)
 
 (setq inhibit-compacting-font-caches nil)
 (setq which-key-allow-imprecise-window-fit t)
