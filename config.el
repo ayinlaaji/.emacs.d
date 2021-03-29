@@ -103,7 +103,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.ts[x]\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.[p]uml\\'" . plantuml-mode))
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 
@@ -118,6 +118,11 @@
 (add-hook 'python-mode #'lsp-deferred)
 (add-hook 'typescript-mode-hook #'lsp-deferred)
 (add-hook 'web-mode-hook #'lsp-deferred)
+(add-hook 'js2-mode-hook 'flow-minor-enable-automatically)
+
+(with-eval-after-load 'company
+  (add-to-list 'company-backends 'company-flow))
+
 
 ;; Enable Emmet
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
@@ -130,6 +135,9 @@
 (add-hook 'bazel-mode-hook (lambda ()(add-hook 'before-save-hook #'bazel-format nil t)))
 (add-hook 'c-mode-common-hook (lambda ()(add-hook 'before-save-hook #'lsp-format-buffer)))
 (add-hook 'protobuf-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
+(add-hook 'typescript-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
+(add-hook 'js2-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
+(add-hook 'web-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
 (add-hook 'plantuml-mode-hook (lambda ()(add-hook 'before-save-hook #'plantuml-preview)))
 
 ;; PlantUML jar configuration

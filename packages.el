@@ -69,3 +69,5 @@
 (package! company-restclient)
 (package! protobuf-mode)
 (package! clang-format)
+(package! company-flow)
+(package! flow-minor-mode)

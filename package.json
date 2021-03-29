@@ -18,8 +18,10 @@
   "homepage": "https://github.com/ayinlaaji/.emacs.d#readme",
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^3.9.5",
-    "prettier": "^2.0.5",
-    "trepan-ni": "^3.4.5"
+    "eslint": "^7.23.0",
+    "prettier": "^2.2.1",
+    "trepan-ni": "^3.4.5",
+    "typescript": "^3.9.9",
+    "vim-language-server": "^2.1.3"
   }
 }
