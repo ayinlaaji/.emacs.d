@@ -1,4 +1,3 @@
-
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
@@ -20,7 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 14))
+;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
+;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -35,10 +35,11 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
-;; - `use-package' for configuring packages
+;; - `use-package!' for configuring packages
 ;; - `after!' for running code after a package has loaded
 ;; - `add-load-path!' for adding directories to the `load-path', relative to
 ;;   this file. Emacs searches the `load-path' when you load packages with
@@ -46,10 +47,10 @@
 ;; - `map!' for binding new keys
 ;;
 ;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c g k').
+;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
 ;; This will open documentation for it, including demos of how they are used.
 ;;
-;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
+;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
 ;;CUSTOM VARIABLES ================================
@@ -79,14 +80,13 @@
 
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (setq company-lsp-cache-candidates t)
-(setq org-plantuml-jar-path (expand-file-name "/Users/ayinla/plantuml.jar"))
 
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq initial-major-mode 'org-mode)
 (setq mac-command-modifier 'control)
 (setq-default tab-width 2 indent-tabs-mode nil)
 (setq ivy-re-builders-alist
-     '((ivy-switch-buffer . ivy--regex-plus)
+      '((ivy-switch-buffer . ivy--regex-plus)
         (t . ivy--regex-fuzzy)))
 (add-to-list 'ivy-re-builders-alist '(counsel-rg . ivy--regex-plus))
 (setq enable-recursive-minibuffers t)
@@ -104,7 +104,6 @@
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ts[x]\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.[p]uml\\'" . plantuml-mode))
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 
 ;; Defer LSP
@@ -118,10 +117,7 @@
 (add-hook 'python-mode #'lsp-deferred)
 (add-hook 'typescript-mode-hook #'lsp-deferred)
 (add-hook 'web-mode-hook #'lsp-deferred)
-(add-hook 'js2-mode-hook 'flow-minor-enable-automatically)
-
-(with-eval-after-load 'company
-  (add-to-list 'company-backends 'company-flow))
+(with-eval-after-load 'company)
 
 
 ;; Enable Emmet
@@ -132,20 +128,12 @@
 
 ;; Before save hooks
 (add-hook 'org-mode-hook 'org-bullets-mode)
-(add-hook 'bazel-mode-hook (lambda ()(add-hook 'before-save-hook #'bazel-format nil t)))
-(add-hook 'c-mode-common-hook (lambda ()(add-hook 'before-save-hook #'lsp-format-buffer)))
-(add-hook 'protobuf-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
-(add-hook 'typescript-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
-(add-hook 'js2-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
-(add-hook 'web-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
-(add-hook 'plantuml-mode-hook (lambda ()(add-hook 'before-save-hook #'plantuml-preview)))
-
-;; PlantUML jar configuration
-(setq plantuml-jar-path "/Users/ayinla/plantuml.jar")
-(setq plantuml-default-exec-mode 'jar)
-(setq org-plantuml-jar-path
-      (expand-file-name "/Users/ayinla/plantuml.jar"))
-
+(add-hook 'c-mode-common-hook #'format-all-buffer)
+(add-hook 'typescript-mode-hook #'format-all-buffer)
+(add-hook 'js2-mode-hook #'format-all-buffer)
+(add-hook 'web-mode-hook #'format-all-buffer)
+(add-hook 'rxjs-mode-hook #'format-all-buffer)
+(add-hook 'json-mode-hook (lambda ()(add-hook 'before-save-hook #'format-all-buffer)))
 
 ;; Org-mode configuration
 (display-time-mode 1)
@@ -175,10 +163,3 @@
 
 (setq company-dabbrev-downcase 0)
 (setq company-idle-delay 0.5)
-
-;;(defconst my-protobuf-style
-;;  '((c-basic-offset . 2)
-;;    (indent-tabs-mode . nil)))
-;;
-;;(add-hook 'protobuf-mode-hook
-;;          (lambda () (c-add-style "my-style" my-protobuf-style t)))
